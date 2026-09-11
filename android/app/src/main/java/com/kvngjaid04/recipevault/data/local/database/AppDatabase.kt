@@ -6,6 +6,7 @@ import com.kvngjaid04.recipevault.data.local.dao.RecipeDao
 import com.kvngjaid04.recipevault.data.local.dao.IngredientDao
 import com.kvngjaid04.recipevault.data.local.dao.RecipeStepDao
 import com.kvngjaid04.recipevault.data.local.entity.*
+import androidx.room.TypeConverters
 
 @Database(
     entities = [
@@ -18,6 +19,7 @@ import com.kvngjaid04.recipevault.data.local.entity.*
     ],
     version = 1
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun recipeDao(): RecipeDao
     abstract fun ingredientDao(): IngredientDao

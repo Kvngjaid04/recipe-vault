@@ -5,5 +5,7 @@ data class Recipe(
     val title: String,
     val instructions: String,
     val servings: Int,
-    val favorite: Boolean = false
+    val favorite: Boolean = false,
+    val createdAt: Long = System.currentTimeMillis(),
+    val updatedAt: Long = System.currentTimeMillis()
 )
