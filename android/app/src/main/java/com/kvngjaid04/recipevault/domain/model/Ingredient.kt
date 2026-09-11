@@ -5,5 +5,6 @@ data class Ingredient(
     val recipeId: Long,
     val catalogId: Long,
     val quantity: Double,
-    val unit: String
+    val unit: String,
+    val unitType: UnitType
 )
