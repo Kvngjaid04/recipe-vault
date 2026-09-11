@@ -13,3 +13,14 @@ fun RecipeStepEntity.toDomain(): RecipeStep {
         timerMinutes = timerMinutes
     )
 }
+
+fun RecipeStep.toEntity(): RecipeStepEntity {
+    return RecipeStepEntity(
+        id = id,
+        recipeId = recipeId,
+        stepNumber = stepNumber,
+        title = title,
+        instruction = instruction,
+        timerMinutes = timerMinutes
+    )
+}

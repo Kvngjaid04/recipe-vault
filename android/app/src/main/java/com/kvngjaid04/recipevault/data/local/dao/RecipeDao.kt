@@ -11,7 +11,9 @@ import com.kvngjaid04.recipevault.data.local.entity.RecipeEntity
 interface RecipeDao {
 
     @Insert
-    suspend fun insertRecipe(recipe: RecipeEntity)
+    suspend fun insertRecipe(
+        recipe: RecipeEntity
+    ): Long
 
     @Delete
     suspend fun deleteRecipe(recipe: RecipeEntity)
@@ -24,4 +26,8 @@ interface RecipeDao {
 
     @Query("SELECT * FROM recipes WHERE id = :id")
     suspend fun getRecipeById(id: Long): RecipeEntity?
+
+    @Query("""SELECT * FROM recipes WHERE title LIKE '%' || :query || '%' """)
+    suspend fun searchRecipes(query: String): List<RecipeEntity>
 }
+

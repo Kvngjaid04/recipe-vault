@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import com.kvngjaid04.recipevault.data.local.dao.RecipeDao
 import com.kvngjaid04.recipevault.data.local.dao.IngredientDao
 import com.kvngjaid04.recipevault.data.local.dao.RecipeStepDao
+import com.kvngjaid04.recipevault.data.local.dao.RecipeVariationDao
 import com.kvngjaid04.recipevault.data.local.entity.*
 import androidx.room.TypeConverters
 
@@ -17,11 +18,13 @@ import androidx.room.TypeConverters
         RecipeVariationEntity::class,
         RecipeSourceEntity::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun recipeDao(): RecipeDao
     abstract fun ingredientDao(): IngredientDao
     abstract fun recipeStepDao(): RecipeStepDao
+    abstract fun recipeVariationDao(): RecipeVariationDao
 }

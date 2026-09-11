@@ -2,10 +2,12 @@ package com.kvngjaid04.recipevault.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "recipe_steps",
+    indices = [Index("recipeId")],
     foreignKeys = [
         ForeignKey(
             entity = RecipeEntity::class,

@@ -11,7 +11,7 @@ interface IngredientDao {
     @Insert
     suspend fun insertIngredient(
         ingredient: IngredientEntity
-    )
+    ): Long
 
     @Query(
         "SELECT * FROM ingredients WHERE recipeId = :recipeId"

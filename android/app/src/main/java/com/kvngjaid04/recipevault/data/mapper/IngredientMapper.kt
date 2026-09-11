@@ -13,3 +13,14 @@ fun IngredientEntity.toDomain(): Ingredient {
         unitType = unitType
     )
 }
+
+fun Ingredient.toEntity(): IngredientEntity {
+    return IngredientEntity(
+        id = id,
+        recipeId = recipeId,
+        catalogId = catalogId,
+        quantity = quantity,
+        unit = unit,
+        unitType = unitType
+    )
+}

@@ -3,10 +3,12 @@ package com.kvngjaid04.recipevault.data.local.entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import androidx.room.Index
 import com.kvngjaid04.recipevault.domain.model.UnitType
 
 @Entity(
     tableName = "ingredients",
+    indices = [Index("recipeId")],
     foreignKeys = [
         ForeignKey(
             entity = RecipeEntity::class,

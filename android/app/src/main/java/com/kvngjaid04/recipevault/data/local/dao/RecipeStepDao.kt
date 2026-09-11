@@ -11,7 +11,7 @@ interface RecipeStepDao {
     @Insert
     suspend fun insertStep(
         step: RecipeStepEntity
-    )
+    ): Long
 
     @Query(
         "SELECT * FROM recipe_steps WHERE recipeId = :recipeId ORDER BY stepNumber"
