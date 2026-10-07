@@ -14,6 +14,12 @@ data class RecipeEntity(
 
     val servings: Int,
 
+    val cookTimeMinutes: Int,
+
+    val category: String,
+
+    val imageUrl: String?,
+
     val favorite: Boolean = false,
 
     val createdAt: Long,

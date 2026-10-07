@@ -2,10 +2,11 @@ package com.kvngjaid04.recipevault.domain.repository
 
 import com.kvngjaid04.recipevault.domain.model.Recipe
 import com.kvngjaid04.recipevault.domain.model.RecipeDetails
+import kotlinx.coroutines.flow.Flow
 
 interface RecipeRepository {
 
-    suspend fun getRecipes(): List<Recipe>
+    fun getRecipes(): Flow<List<Recipe>>
 
     suspend fun getRecipeDetails(
         recipeId: Long

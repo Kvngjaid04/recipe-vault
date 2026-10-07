@@ -56,6 +56,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.coil.compose)
     ksp(libs.androidx.room.compiler)
     ksp(libs.hilt.compiler)
 }

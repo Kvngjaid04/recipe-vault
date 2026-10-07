@@ -9,6 +9,8 @@ import com.kvngjaid04.recipevault.data.local.dao.RecipeStepDao
 import com.kvngjaid04.recipevault.data.local.dao.RecipeVariationDao
 import com.kvngjaid04.recipevault.data.mapper.toDomain
 import com.kvngjaid04.recipevault.data.mapper.toEntity
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 
 class RecipeRepositoryImpl(
@@ -18,10 +20,12 @@ class RecipeRepositoryImpl(
     private val recipeVariationDao: RecipeVariationDao
 ) : RecipeRepository {
 
-    override suspend fun getRecipes(): List<Recipe> {
+    override fun getRecipes(): Flow<List<Recipe>> {
         return recipeDao
             .getAllRecipes()
-            .map { it.toDomain() }
+            .map { entities ->
+                entities.map { it.toDomain() }
+            }
     }
     override suspend fun searchRecipes(
              query: String

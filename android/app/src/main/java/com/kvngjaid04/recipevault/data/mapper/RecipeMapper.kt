@@ -9,7 +9,12 @@ fun RecipeEntity.toDomain(): Recipe {
         title = title,
         instructions = instructions,
         servings = servings,
-        favorite = favorite
+        cookTimeMinutes = cookTimeMinutes,
+        category = category,
+        imageUrl = imageUrl,
+        favorite = favorite,
+        createdAt = createdAt,
+        updatedAt = updatedAt
     )
 }
 
@@ -19,6 +24,9 @@ fun Recipe.toEntity(): RecipeEntity {
         title = title,
         instructions = instructions,
         servings = servings,
+        cookTimeMinutes = cookTimeMinutes,
+        category = category,
+        imageUrl = imageUrl,
         favorite = favorite,
         createdAt = createdAt,
         updatedAt = updatedAt

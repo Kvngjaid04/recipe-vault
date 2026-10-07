@@ -3,32 +3,42 @@ package com.kvngjaid04.recipevault.presentation.recipe_list
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.kvngjaid04.recipevault.presentation.components.RecipeCard
 
 @Composable
 fun RecipeListScreen(
+    onAddRecipe: () -> Unit,
     viewModel: RecipeListViewModel = hiltViewModel()
 ) {
+    val recipes = viewModel.recipes.collectAsState()
 
-    val recipes =
-        viewModel.recipes.collectAsState()
-
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp)
-    ) {
-
-        items(recipes.value) { recipe ->
-
-            Text(
-                text = recipe.title,
-                modifier = Modifier.padding(8.dp)
-            )
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = onAddRecipe) {
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Recipe")
+            }
+        }
+    ) { innerPadding ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+            contentPadding = PaddingValues(16.dp)
+        ) {
+            items(recipes.value) { recipe ->
+                RecipeCard(
+                    recipe = recipe,
+                    onClick = { /* Navigate to detail */ }
+                )
+            }
         }
     }
 }
